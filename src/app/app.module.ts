@@ -32,6 +32,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListComponent } from './components/perfilpet/list/list.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ListComponent } from './components/perfilpet/list/list.component';
     HomeComponent,
     HeaderComponent,
     ListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
