@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         // Tratar erro de autenticação aqui
         if (erro.status === 401) {
           this.toast.error('Credenciais inválidas. Por favor, verifique seu login e senha.');
+          this.creds.senha = '';
         } else {
           this.toast.error('Ocorreu um erro durante a autenticação. Por favor, tente novamente mais tarde.');
         }

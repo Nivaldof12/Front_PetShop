@@ -5,13 +5,15 @@ import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/perfilpet/list/list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path:'', component: NavComponent, canActivate: [AuthGuard], children: [
       {path: 'home', component: HomeComponent},
-      {path: 'perfilpet', component: ListComponent}
+      {path: 'perfilpet', component: ListComponent},
+      {path: 'perfilusuario', component: PerfilusuarioComponent}
     ]
   },
 ];

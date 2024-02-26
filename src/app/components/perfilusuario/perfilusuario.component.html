@@ -1,0 +1,30 @@
+<div class="container">
+    <form class="form mat-elevation-z8" (ngSubmit)="atualizarUsuario()">
+      <h1>Editar Perfil</h1>
+  
+      <img src="assets/img/editarperfil.svg" alt="Imagem do Usuário">
+  
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input required matInput name="nome" [(ngModel)]="novoNome" placeholder="{{ usuarioLogado.nome }}">
+      </mat-form-field>
+  
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput name="email" [(ngModel)]="novoEmail" placeholder="{{ usuarioLogado.email }}" readonly>
+      </mat-form-field>
+  
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input required matInput type="password" name="senha" [(ngModel)]="novaSenha" placeholder="Nova senha">
+      </mat-form-field>
+  
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Celular</mat-label>
+        <input required matInput name="celular" [(ngModel)]="novoCelular" placeholder="{{ usuarioLogado.celular }}">
+      </mat-form-field>
+  
+      <button type="submit" class="full-width mat-elevation-z4 color" mat-raised-button>Editar Perfil</button>
+    </form>
+  </div>
+  
