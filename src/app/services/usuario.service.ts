@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { API_CONFIG } from '../config/api.config';
 import { Observable } from 'rxjs';
+import { NovoUsuario } from '../models/novousuario';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class UsuarioService {
   editarUsuario(usuario: Usuario): Observable<string> {
     const url = `${API_CONFIG.baseUrl}/api/usuarios/editar/${usuario.id}`;
     return this.http.put<string>(url, usuario);
+  }
+
+  cadastrar(novousuario: NovoUsuario): Observable<NovoUsuario> {
+    return this.http.post<NovoUsuario>(`${API_CONFIG.baseUrl}/api/usuarios/incluir`, novousuario);
   }
 }

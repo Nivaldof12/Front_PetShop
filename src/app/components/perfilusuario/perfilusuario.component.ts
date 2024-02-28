@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,6 +20,11 @@ export class PerfilusuarioComponent implements OnInit {
   novoEmail: string;
   novaSenha: string;
   novoCelular: string;
+
+  validarnome = new FormControl(null);
+  validaremail = new FormControl(null, Validators.email);
+  validarsenha = new FormControl(null, Validators.minLength(5));
+  validarcelular = new FormControl(null);
 
   constructor(private authService: AuthService, private usuarioService: UsuarioService, private toastr: ToastrService) { }
 
@@ -59,5 +65,9 @@ export class PerfilusuarioComponent implements OnInit {
         this.toastr.error('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.', 'Erro');
       }
     );
+  }
+
+  validaCampos(): boolean {
+    return this.validarnome.valid && this.validaremail.valid && this.validarsenha.valid && this.validarcelular.valid;
   }
 }

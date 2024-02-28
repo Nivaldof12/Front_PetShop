@@ -6,9 +6,11 @@ import { ListComponent } from './components/perfilpet/list/list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
+import { CadastroComponent } from './components/cadastro/cadastro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
   {
     path:'', component: NavComponent, canActivate: [AuthGuard], children: [
       {path: 'home', component: HomeComponent},

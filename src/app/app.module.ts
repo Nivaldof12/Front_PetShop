@@ -35,6 +35,7 @@ import { ListComponent } from './components/perfilpet/list/list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
+import { CadastroComponent } from './components/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario
     ListComponent,
     LoginComponent,
     PerfilusuarioComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,

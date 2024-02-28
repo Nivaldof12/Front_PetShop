@@ -6,25 +6,29 @@
   
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Nome</mat-label>
-        <input required matInput name="nome" [(ngModel)]="novoNome" placeholder="{{ usuarioLogado.nome }}">
+        <input required matInput name="nome" [(ngModel)]="novoNome" [formControl]="validarnome" placeholder="{{ usuarioLogado.nome }}">
+        <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
   
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
-        <input matInput name="email" [(ngModel)]="novoEmail" placeholder="{{ usuarioLogado.email }}" readonly>
+        <input matInput name="email" [(ngModel)]="novoEmail" [formControl]="validaremail" placeholder="{{ usuarioLogado.email }}" readonly>
+        <mat-icon matSuffix>mail</mat-icon>
       </mat-form-field>
   
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Senha</mat-label>
-        <input required matInput type="password" name="senha" [(ngModel)]="novaSenha" placeholder="Nova senha">
+        <input required matInput type="password" name="senha" [(ngModel)]="novaSenha" [formControl]="validarsenha" placeholder="Nova senha">
+        <mat-icon matSuffix>password</mat-icon>
       </mat-form-field>
   
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Celular</mat-label>
-        <input required matInput name="celular" [(ngModel)]="novoCelular" placeholder="{{ usuarioLogado.celular }}">
+        <input required matInput name="celular" [(ngModel)]="novoCelular" [formControl]="validarcelular" placeholder="{{ usuarioLogado.celular }}">
+        <mat-icon matSuffix>call</mat-icon>
       </mat-form-field>
   
-      <button type="submit" class="full-width mat-elevation-z4 color" mat-raised-button>Editar Perfil</button>
+      <button type="submit" class="full-width mat-elevation-z4 color" mat-raised-button [disabled]="!validaCampos()">Editar Perfil</button>
     </form>
   </div>
   
