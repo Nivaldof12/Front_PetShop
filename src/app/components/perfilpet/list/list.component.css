@@ -7,3 +7,21 @@ table {
     width: 100%;
   }
   
+.cadastrar-pet-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+.cadastrar-pet-btn:hover {
+    background-color: #45a049;
+  }

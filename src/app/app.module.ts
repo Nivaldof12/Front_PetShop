@@ -36,6 +36,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { PerfilpetcadastroComponent } from './components/perfilpetcadastro/perfilpetcadastro.component';
+import { PerfilpeteditarComponent } from './components/perfilpeteditar/perfilpeteditar.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
     LoginComponent,
     PerfilusuarioComponent,
     CadastroComponent,
+    PerfilpetcadastroComponent,
+    PerfilpeteditarComponent,
   ],
   imports: [
     BrowserModule,
