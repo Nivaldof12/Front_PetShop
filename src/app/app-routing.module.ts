@@ -19,7 +19,7 @@ const routes: Routes = [
       {path: 'perfilpet', component: ListComponent},
       {path: 'perfilusuario', component: PerfilusuarioComponent},
       {path: 'perfilpetcadastro', component: PerfilpetcadastroComponent},
-      {path: 'perfilpeteditar', component: PerfilpeteditarComponent}
+      {path: 'perfilpeteditar/:id', component: PerfilpeteditarComponent}
     ]
   },
 ];

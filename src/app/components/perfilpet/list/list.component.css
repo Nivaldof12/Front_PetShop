@@ -25,3 +25,11 @@ table {
 .cadastrar-pet-btn:hover {
     background-color: #45a049;
   }
+
+.edit {
+  color: rgb(19, 181, 226);
+}
+
+.delete {
+  color: rgb(233, 10, 10);
+}
