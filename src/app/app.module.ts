@@ -26,6 +26,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 //Componentes do projeto
 import { NavComponent } from './components/nav/nav.component';
@@ -80,6 +82,8 @@ import { AgendamentocadastroComponent } from './components/agendamentocadastro/a
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,
