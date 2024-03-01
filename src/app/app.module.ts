@@ -38,6 +38,8 @@ import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { PerfilpetcadastroComponent } from './components/perfilpetcadastro/perfilpetcadastro.component';
 import { PerfilpeteditarComponent } from './components/perfilpeteditar/perfilpeteditar.component';
+import { AgendamentoComponent } from './components/agendamento/agendamento.component';
+import { AgendamentocadastroComponent } from './components/agendamentocadastro/agendamentocadastro.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { PerfilpeteditarComponent } from './components/perfilpeteditar/perfilpet
     CadastroComponent,
     PerfilpetcadastroComponent,
     PerfilpeteditarComponent,
+    AgendamentoComponent,
+    AgendamentocadastroComponent,
   ],
   imports: [
     BrowserModule,

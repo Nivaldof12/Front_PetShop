@@ -9,6 +9,8 @@ import { PerfilusuarioComponent } from './components/perfilusuario/perfilusuario
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { PerfilpetcadastroComponent } from './components/perfilpetcadastro/perfilpetcadastro.component';
 import { PerfilpeteditarComponent } from './components/perfilpeteditar/perfilpeteditar.component';
+import { AgendamentoComponent } from './components/agendamento/agendamento.component';
+import { AgendamentocadastroComponent } from './components/agendamentocadastro/agendamentocadastro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +21,9 @@ const routes: Routes = [
       {path: 'perfilpet', component: ListComponent},
       {path: 'perfilusuario', component: PerfilusuarioComponent},
       {path: 'perfilpetcadastro', component: PerfilpetcadastroComponent},
-      {path: 'perfilpeteditar/:id', component: PerfilpeteditarComponent}
+      {path: 'perfilpeteditar/:id', component: PerfilpeteditarComponent},
+      {path: 'agendamento', component: AgendamentoComponent},
+      {path: 'agendamentocadastro', component: AgendamentocadastroComponent}
     ]
   },
 ];
