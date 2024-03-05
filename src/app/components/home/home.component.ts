@@ -13,14 +13,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Método para ir para a página de perfilpetcadastro
   perfilpet() {
     this.router.navigate(['perfilpetcadastro'])
   }
 
+  // Método para ir para a página de agendamentocadastro
   agendamento() {
     this.router.navigate(['agendamentocadastro'])
   }
 
+  // Método para ir para a página de perfilusuario
   perfiluser() {
     this.router.navigate(['perfilusuario'])
   }

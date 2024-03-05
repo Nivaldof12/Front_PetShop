@@ -26,14 +26,17 @@ export class PerfilpeteditarComponent implements OnInit {
     // Aqui você pode chamar um método para carregar os dados do perfil do pet com base no ID
   }
 
+  // Método para obter o ID do perfil de pet da rota
   getIdPerfilPet(): number {
     return +this.route.snapshot.params['id'];
   }
 
+  // Método para validar se todos os campos do formulário
   validaCampos(): boolean {
     return this.validarnome.valid && this.validarraca.valid && this.validaridade.valid;
   }
 
+  // Método para editar o perfil de pet
   EditarPerfilPet(): void {
     const idPerfilPet = this.getIdPerfilPet();
     const perfilPetAlterado = {
@@ -53,6 +56,7 @@ export class PerfilpeteditarComponent implements OnInit {
     );
   }
 
+  // Método para navegar de volta para a página de perfis de pet
   voltar() {
     this.router.navigate(['perfilpet'])
   }

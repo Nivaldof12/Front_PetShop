@@ -34,7 +34,6 @@ export class PerfilusuarioComponent implements OnInit {
   }
 
   // Método para atualizar os dados do usuário
-  // Método para atualizar os dados do usuário
   atualizarUsuario(): void {
     // Criar um objeto com os novos dados do usuário
     const usuarioAtualizado: Usuario = {
@@ -67,6 +66,7 @@ export class PerfilusuarioComponent implements OnInit {
     );
   }
 
+  // Método para validar se todos os campos do formulário
   validaCampos(): boolean {
     return this.validarnome.valid && this.validaremail.valid && this.validarsenha.valid && this.validarcelular.valid;
   }

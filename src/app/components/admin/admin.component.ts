@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit {
     this.listarUsuarios();
   }
 
+  // Método para listar os usuários
   listarUsuarios(): void {
     this.usuarioService.listarUsuarios().subscribe(
       response => {

@@ -31,6 +31,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Método para cadastrar um usuário
   cadastrarUsuario() {
     const novoUsuario: NovoUsuario = {
       nome: this.nome,
@@ -55,10 +56,12 @@ export class CadastroComponent implements OnInit {
     );
   }
 
+  // Método para voltar para a página de login
   voltar() {
     this.router.navigate(['login'])
   }
 
+  // Método para validar se todos os campos do formulário
   validaCampos(): boolean {
     return this.validarnome.valid && this.validaremail.valid && this.validarsenha.valid && this.validarcelular.valid;
   }

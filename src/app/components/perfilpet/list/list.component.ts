@@ -43,6 +43,7 @@ export class ListComponent implements OnInit {
     }
   }
 
+  // Exclui um perfil de pet com base no ID fornecido.
   excluirPerfilPet(id: number) {
     if (confirm('Tem certeza que deseja excluir este perfil?')) {
       this.perfilpetService.excluir(id).subscribe(
@@ -57,10 +58,12 @@ export class ListComponent implements OnInit {
     }
   }
 
+  // Navega para a página de edição do perfil de pet com base no ID fornecido.
   editarPerfilPet(id: number) {
     this.router.navigate(['perfilpeteditar', id]);
   }
 
+  // Navega para a página de cadastro de perfil de pet.
   perfilpetcadastro() {
     this.router.navigate(['perfilpetcadastro'])
   }

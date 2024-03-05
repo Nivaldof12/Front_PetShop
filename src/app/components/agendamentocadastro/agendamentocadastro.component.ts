@@ -51,6 +51,7 @@ export class AgendamentocadastroComponent implements OnInit {
     }
   }
 
+  // Método para obter os perfis de pets do usuário
   obterPerfilPetsPorUsuario(idUsuario: number) {
     this.perfilPetService.obterPerfisPorUsuario(idUsuario).subscribe(
       (perfilPets: PerfilPet[]) => {
@@ -62,6 +63,7 @@ export class AgendamentocadastroComponent implements OnInit {
     );
   }
 
+  // Método para cadastrar um agendamento
   cadastrarAgendamento(): void {
     this.agendamentoService.incluir(this.agendamento).subscribe(
       response => {
@@ -87,10 +89,12 @@ export class AgendamentocadastroComponent implements OnInit {
     );
   }
 
+  // Método para validar se todos os campos estão preenchidos
   validaCampos(): boolean {
     return this.validarDia.valid && this.validarObservacao.valid && this.validarTipo.valid && this.validarPerfilPetId.valid;
 }
   
+  // Método para voltar para a página de agendamentos
   voltar() {
     this.router.navigate(['agendamento'])
   }

@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Método para realizar login
   logar() {
     this.service.authenticate(this.creds).subscribe(
       resposta => {
@@ -47,10 +48,12 @@ export class LoginComponent implements OnInit {
     );
   }
   
+   // Método para validar se todos os campos do formulário
   validaCampos(): boolean {
     return this.email.valid && this.senha.valid
   }
 
+  // Método para navegar para a página de cadastro
   cadastro() {
     this.router.navigate(['cadastro'])
   }

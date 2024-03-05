@@ -18,10 +18,11 @@ export class NavComponent implements OnInit {
   private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.router.navigate(['home'])
-    this.usuarioLogado = this.authService.getUsuarioLogado();
+    this.router.navigate(['home']) // Navega para a rota 'home' ao inicializar o componente
+    this.usuarioLogado = this.authService.getUsuarioLogado(); // Obtém as informações do usuário logado
   }
 
+  // Método para realizar logout
   logout() {
     this.router.navigate(['login'])
     this.toast.info('Logout realizado!', 'Logout', {timeOut: 7000})

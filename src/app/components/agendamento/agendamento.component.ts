@@ -22,6 +22,7 @@ export class AgendamentoComponent implements OnInit {
     this.usuarioLogado = this.authService.getUsuarioLogado();
   }
 
+  // Método para listar todos os agendamentos
   obterTodosAgendamentos() {
     this.agendamentoService.obterTodosAgendamentos().subscribe(
       (agendamentos: Agendamento[]) => {
@@ -34,6 +35,7 @@ export class AgendamentoComponent implements OnInit {
     );
   }
 
+  // Método para excluir um agendamento
   excluirAgendamento(id: number) {
     this.agendamentoService.excluirAgendamento(id).subscribe(
       () => {
@@ -48,6 +50,7 @@ export class AgendamentoComponent implements OnInit {
     );
   }
   
+  // Método para redirecionar para a página de cadastro de agendamento
   cadastroagendamento() {
     this.router.navigate(['agendamentocadastro'])
   }

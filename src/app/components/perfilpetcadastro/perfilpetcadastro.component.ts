@@ -37,6 +37,7 @@ export class PerfilpetcadastroComponent implements OnInit {
     });
   }
 
+  // Método para incluir um novo perfil de pet
   incluirPerfilPet(): void {
     if (this.perfilPetForm.valid) {
       const idUsuario = this.authService.getUsuarioLogado().id;
@@ -59,10 +60,12 @@ export class PerfilpetcadastroComponent implements OnInit {
     }
   }
 
+  // Método para validar se todos os campos do formulário
   validaCampos(): boolean {
     return this.validarnome.valid && this.validarraca.valid && this.validaridade.valid;
   }
 
+  // Método para navegar de volta para a página de perfis de pet
   voltar() {
     this.router.navigate(['perfilpet'])
   }
