@@ -3,23 +3,29 @@
   </div>
 
   <div *ngIf="agendamentos.length > 0">
-    <mat-card class="card mat-elevation-z4" *ngFor="let agendamento of agendamentos">
-      <mat-card-header>
-        <mat-card-title>Agendamento realizado</mat-card-title>
-        <mat-card-subtitle>Detalhes:</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="assets/img/agendamentofeito.svg" alt="Agendamento feito">
-      <mat-card-content>
-        <p>
-          <strong>PerfilPet ID:</strong> <br>
-          <strong>Dia do atendimento:</strong> {{ agendamento.dia | date:'dd/MM/yyyy' }} <br>
-          <strong>Tipo:</strong> {{ agendamento.tipo }} <br>
-          <strong>Observação:</strong> {{ agendamento.observacao }}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="excluirAgendamento(agendamento.id)">Excluir agendamento</button>
-      </mat-card-actions>
-    </mat-card>
+    <ng-container *ngFor="let agendamento of agendamentos">
+      <!-- Verifica se o usuário logado é um administrador ou se o agendamento pertence a ele -->
+      <ng-container *ngIf="usuarioLogado.admin || agendamento.perfilPet.usuario.id === usuarioLogado.id">
+        <mat-card class="card mat-elevation-z4">
+          <mat-card-header>
+            <mat-card-title>Agendamento realizado</mat-card-title>
+            <mat-card-subtitle>Detalhes:</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="assets/img/agendamentofeito.svg" alt="Agendamento feito">
+          <mat-card-content>
+            <p>
+              <strong>PerfilPet:</strong> {{ agendamento.perfilPet.nome }} <br>
+              <strong>Dia do atendimento:</strong> {{ agendamento.dia | date:'dd/MM/yyyy' }} <br>
+              <strong>Tipo:</strong> {{ agendamento.tipo }} <br>
+              <strong>Observação:</strong> {{ agendamento.observacao }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="excluirAgendamento(agendamento.id)">Excluir agendamento</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+    </ng-container>
   </div>
+  
   

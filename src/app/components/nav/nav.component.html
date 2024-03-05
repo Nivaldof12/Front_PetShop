@@ -18,6 +18,13 @@
                 <i class="material-icons">calendar_today</i>
                 Agendar Serviço
             </a>
+            <!-- Verifica se o usuário logado é um administrador -->
+            <ng-container *ngIf="usuarioLogado?.admin">
+                <a mat-list-item routerLink="admin">
+                    <i class="material-icons">supervised_user_circle</i>
+                    Usuarios
+                </a>
+            </ng-container>
             <a mat-list-item (click)="logout()">
                 <i class="material-icons">logout</i>
                 Logout

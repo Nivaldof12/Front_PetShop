@@ -42,7 +42,6 @@ export class AgendamentocadastroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregarPerfilPets();
     const usuarioLogado: Usuario = this.authService.getUsuarioLogado();
     if (usuarioLogado) {
       const idUsuario = usuarioLogado.id;
@@ -59,17 +58,6 @@ export class AgendamentocadastroComponent implements OnInit {
       },
       error => {
         console.error('Erro ao obter perfil de pets:', error);
-      }
-    );
-  }
-
-  carregarPerfilPets(): void {
-    this.perfilPetService.listar().subscribe(
-      response => {
-        this.perfilPets = response;
-      },
-      error => {
-        console.log('Erro ao carregar perfis de pets: ', error);
       }
     );
   }

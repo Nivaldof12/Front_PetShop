@@ -42,6 +42,7 @@ import { PerfilpetcadastroComponent } from './components/perfilpetcadastro/perfi
 import { PerfilpeteditarComponent } from './components/perfilpeteditar/perfilpeteditar.component';
 import { AgendamentoComponent } from './components/agendamento/agendamento.component';
 import { AgendamentocadastroComponent } from './components/agendamentocadastro/agendamentocadastro.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AgendamentocadastroComponent } from './components/agendamentocadastro/a
     PerfilpeteditarComponent,
     AgendamentoComponent,
     AgendamentocadastroComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Agendamento } from 'src/app/models/agendamento';
 import { AgendamentoService } from 'src/app/services/agendamento.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-agendamento',
@@ -12,11 +13,13 @@ import { AgendamentoService } from 'src/app/services/agendamento.service';
 export class AgendamentoComponent implements OnInit {
 
   agendamentos: Agendamento[] = [];
+  usuarioLogado: any;
 
-  constructor(private agendamentoService: AgendamentoService, private toastr: ToastrService, private router: Router) { }
+  constructor(private agendamentoService: AgendamentoService, private toastr: ToastrService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.obterTodosAgendamentos();
+    this.usuarioLogado = this.authService.getUsuarioLogado();
   }
 
   obterTodosAgendamentos() {

@@ -11,6 +11,7 @@ import { PerfilpetcadastroComponent } from './components/perfilpetcadastro/perfi
 import { PerfilpeteditarComponent } from './components/perfilpeteditar/perfilpeteditar.component';
 import { AgendamentoComponent } from './components/agendamento/agendamento.component';
 import { AgendamentocadastroComponent } from './components/agendamentocadastro/agendamentocadastro.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
       {path: 'perfilpetcadastro', component: PerfilpetcadastroComponent},
       {path: 'perfilpeteditar/:id', component: PerfilpeteditarComponent},
       {path: 'agendamento', component: AgendamentoComponent},
-      {path: 'agendamentocadastro', component: AgendamentocadastroComponent}
+      {path: 'agendamentocadastro', component: AgendamentocadastroComponent},
+      {path: 'admin', component: AdminComponent}
     ]
   },
 ];
