@@ -26,4 +26,8 @@ export class PerfilpetService {
   editar(id: number, perfilPetAlterado: PerfilPet): Observable<PerfilPet> {
     return this.http.put<PerfilPet>(`${API_CONFIG.baseUrl}/api/perfilpet/editar/${id}`, perfilPetAlterado);
   }
+
+  listar(): Observable<PerfilPet[]> {
+    return this.http.get<PerfilPet[]>(`${API_CONFIG.baseUrl}/api/perfilpet`);
+  }
 }

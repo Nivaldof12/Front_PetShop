@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Agendamento } from 'src/app/models/agendamento';
+import { AgendamentoService } from 'src/app/services/agendamento.service';
 
 @Component({
   selector: 'app-agendamento',
@@ -8,11 +11,40 @@ import { Router } from '@angular/router';
 })
 export class AgendamentoComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  agendamentos: Agendamento[] = [];
+
+  constructor(private agendamentoService: AgendamentoService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+    this.obterTodosAgendamentos();
   }
 
+  obterTodosAgendamentos() {
+    this.agendamentoService.obterTodosAgendamentos().subscribe(
+      (agendamentos: Agendamento[]) => {
+        this.agendamentos = agendamentos;
+      },
+      error => {
+        console.error('Erro ao obter agendamentos:', error);
+        this.toastr.error('Erro ao obter agendamentos. Por favor, tente novamente mais tarde.', 'Erro');
+      }
+    );
+  }
+
+  excluirAgendamento(id: number) {
+    this.agendamentoService.excluirAgendamento(id).subscribe(
+      () => {
+        this.toastr.success('Agendamento excluído com sucesso!', 'Sucesso');
+        // Atualizar a lista de agendamentos após excluir
+        this.obterTodosAgendamentos();
+      },
+      error => {
+        console.error('Erro ao excluir agendamento:', error);
+        this.toastr.error('Erro ao excluir agendamento. Por favor, tente novamente mais tarde.', 'Erro');
+      }
+    );
+  }
+  
   cadastroagendamento() {
     this.router.navigate(['agendamentocadastro'])
   }

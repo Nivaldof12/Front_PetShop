@@ -1,7 +1,9 @@
+import { PerfilPet } from "./perfilpet";
+
 export interface Agendamento {
     id?: number;
-    perfilPetId?: number;
-    dia: Date;
+    perfilPet: PerfilPet;
+    dia: string;
     tipo: string;
     observacao: string;
   }  

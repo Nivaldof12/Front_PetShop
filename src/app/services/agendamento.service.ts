@@ -11,7 +11,7 @@ export class AgendamentoService {
 
   constructor(private http: HttpClient) { }
 
-  criarAgendamento(agendamento: Agendamento): Observable<Agendamento> {
+  incluir(agendamento: Agendamento): Observable<Agendamento> {
     return this.http.post<Agendamento>(`${API_CONFIG.baseUrl}/api/agendamentos/incluir`, agendamento);
   }
 
