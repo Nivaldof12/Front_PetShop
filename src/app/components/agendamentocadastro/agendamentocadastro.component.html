@@ -12,7 +12,7 @@
 
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Marcar para as:</mat-label>
-    <input required matInput name="observacao" [(ngModel)]="agendamento.observacao" [formControl]="validarObservacao" name="observacao">
+    <input required matInput name="observacao" [(ngModel)]="agendamento.observacao" [formControl]="validarObservacao" name="observacao" mask="00:00">
     <mat-icon matSuffix>access_time</mat-icon>
   </mat-form-field>
 

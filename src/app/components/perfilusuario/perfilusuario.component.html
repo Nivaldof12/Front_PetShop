@@ -24,7 +24,7 @@
   
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Celular</mat-label>
-        <input required matInput name="celular" [(ngModel)]="novoCelular" [formControl]="validarcelular" placeholder="{{ usuarioLogado.celular }}">
+        <input required matInput name="celular" [(ngModel)]="novoCelular" [formControl]="validarcelular" placeholder="{{ usuarioLogado.celular }}" mask="(00)00000-0000">
         <mat-icon matSuffix>call</mat-icon>
       </mat-form-field>
   

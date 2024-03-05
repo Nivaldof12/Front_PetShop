@@ -20,4 +20,9 @@ export class UsuarioService {
   cadastrar(novousuario: NovoUsuario): Observable<NovoUsuario> {
     return this.http.post<NovoUsuario>(`${API_CONFIG.baseUrl}/api/usuarios/incluir`, novousuario);
   }
+
+  listarUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${API_CONFIG.baseUrl}/api/usuarios`);
+  }
+  
 }

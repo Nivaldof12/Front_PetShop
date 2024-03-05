@@ -28,6 +28,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 //Componentes do projeto
 import { NavComponent } from './components/nav/nav.component';
@@ -90,7 +91,8 @@ import { AdminComponent } from './components/admin/admin.component';
       timeOut: 4000,
       closeButton: true,
       progressBar: true
-    })
+    }),
+    NgxMaskModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })
