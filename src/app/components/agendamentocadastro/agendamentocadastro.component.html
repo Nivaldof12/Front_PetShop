@@ -5,20 +5,20 @@
 
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Dia do atendimento:</mat-label>
-    <input required matInput [matDatepicker]="picker" [(ngModel)]="agendamento.dia" name="dia">
+    <input required matInput [matDatepicker]="picker" [(ngModel)]="agendamento.dia" [formControl]="validarDia" name="dia">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Marcar para as:</mat-label>
-    <input required matInput name="observacao" [(ngModel)]="agendamento.observacao" name="observacao">
+    <input required matInput name="observacao" [(ngModel)]="agendamento.observacao" [formControl]="validarObservacao" name="observacao">
     <mat-icon matSuffix>access_time</mat-icon>
   </mat-form-field>
 
   <mat-form-field class="full-width" appearance="fill">
     <mat-label>Agendamento para o Pet:</mat-label>
-    <mat-select required [(ngModel)]="agendamento.perfilPet.id" name="perfilPetId">
+    <mat-select required [(ngModel)]="agendamento.perfilPet.id" [formControl]="validarPerfilPetId" name="perfilPetId">
       <mat-option *ngFor="let perfilPet of perfilPets" [value]="perfilPet.id">
           {{ perfilPet.nome }}
       </mat-option>
@@ -27,13 +27,13 @@
 
   <h1>Tipo:</h1>
   <section class="section">
-    <mat-radio-group class="margin" [(ngModel)]="agendamento.tipo" name="tipo">
+    <mat-radio-group class="margin" required [(ngModel)]="agendamento.tipo" [formControl]="validarTipo" name="tipo">
       <mat-radio-button value="Banho">Banho</mat-radio-button>
       <mat-radio-button value="Tosa">Tosa</mat-radio-button>
       <mat-radio-button value="Banho e Tosa">Banho e tosa</mat-radio-button>
     </mat-radio-group>
   </section>
 
-  <button type="submit" class="full-width mat-elevation-z4 color" mat-raised-button>Fazer agendamento</button>
+  <button type="submit" class="full-width mat-elevation-z4 color" mat-raised-button [disabled]="!validaCampos()">Fazer agendamento</button>
   <button type="button" (click)="voltar()" class="full-width mat-elevation-z4" mat-raised-button>Voltar</button>
 </form>
