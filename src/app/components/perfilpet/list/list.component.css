@@ -21,6 +21,16 @@ table {
     border-radius: 8px;
     transition: background-color 0.3s ease;
   }
+
+.card {
+    width: 90%;
+    margin: 1rem auto;
+    background-color: rgb(235, 235, 235);
+}
+
+img {
+    height: 10rem;
+}
   
 .cadastrar-pet-btn:hover {
     background-color: #45a049;
