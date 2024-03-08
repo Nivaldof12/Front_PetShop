@@ -17,7 +17,7 @@
               <strong>PerfilPet: </strong> {{ agendamento.perfilPet.nome }} <br>
               <strong>Dia do atendimento: </strong> {{ agendamento.dia | date:'dd/MM/yyyy' }} <br>
               <strong>Tipo: </strong> {{ agendamento.tipo }} <br>
-              <strong>Observação: </strong> {{ agendamento.observacao | mask: '00:00' }}
+              <strong>Observação: </strong> {{ agendamento.observacao }}
             </p>
           </mat-card-content>
           <mat-card-actions>
