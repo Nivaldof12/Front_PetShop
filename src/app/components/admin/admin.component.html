@@ -1,6 +1,12 @@
 <div class="container">
+
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="usuarios">
+      <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef> ID </th>
           <td mat-cell *matCellDef="let usuario"> {{ usuario.id }} </td>
