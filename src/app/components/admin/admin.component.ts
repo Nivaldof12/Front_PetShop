@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -11,10 +12,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class AdminComponent implements OnInit {
 
   usuarios: Usuario[] = [];
-  displayedColumns: string[] = ['position', 'name', 'email', 'password', 'celular'];
+  displayedColumns: string[] = ['position', 'name', 'email', 'password', 'celular', 'actions'];
   dataSource = new MatTableDataSource<Usuario>(this.usuarios);
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.listarUsuarios();
@@ -39,4 +40,26 @@ export class AdminComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // Método para excluir um usuário
+  excluirUsuario(id: number): void {
+    // Verifica se o usuário não é o admin
+    const usuarioExcluir = this.usuarios.find(usuario => usuario.id === id);
+    if (usuarioExcluir?.admin) {
+      this.toastr.error('Não é possível excluir o usuário admin.', 'Erro');
+      return;
+    }
+
+    if (confirm('Tem certeza que deseja excluir este usuário?')) {
+      this.usuarioService.excluirUsuario(id).subscribe(
+        () => {
+          this.toastr.success('Usuário excluído com sucesso!', 'Sucesso');
+          this.listarUsuarios(); // Atualiza a lista após a exclusão
+        },
+        error => {
+          console.error('Erro ao excluir usuário: ', error);
+          this.toastr.error('Erro ao excluir usuário. Por favor, tente novamente mais tarde.', 'Erro');
+        }
+      );
+    }
+  }
 }

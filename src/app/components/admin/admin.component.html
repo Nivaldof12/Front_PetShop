@@ -27,6 +27,14 @@
           <th mat-header-cell *matHeaderCellDef> Celular </th>
           <td mat-cell *matCellDef="let usuario"> {{ usuario.celular | mask: '(00)00000-0000' }} </td>
         </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Ações </th>
+          <td mat-cell *matCellDef="let usuario">
+            <button mat-icon-button color="warn" (click)="excluirUsuario(usuario.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
         <!-- Defina as colunas que deseja exibir aqui -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let usuario; columns: displayedColumns;"></tr>

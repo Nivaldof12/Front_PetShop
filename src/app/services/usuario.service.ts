@@ -24,5 +24,10 @@ export class UsuarioService {
   listarUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${API_CONFIG.baseUrl}/api/usuarios`);
   }
+
+  excluirUsuario(id: number): Observable<void> {
+    const url = `${API_CONFIG.baseUrl}/api/usuarios/${id}`;
+    return this.http.delete<void>(url);
+  }
   
 }
