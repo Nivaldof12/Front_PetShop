@@ -16,6 +16,8 @@ import { PerfilpetService } from 'src/app/services/perfilpet.service';
 })
 export class AgendamentocadastroComponent implements OnInit {
 
+  dataAtual = new Date();
+
   validarDia = new FormControl(null);
   validarObservacao = new FormControl(null);
   validarTipo = new FormControl(null);
