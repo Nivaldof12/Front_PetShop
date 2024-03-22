@@ -17,6 +17,8 @@ import { PerfilpetService } from 'src/app/services/perfilpet.service';
 export class AgendamentocadastroComponent implements OnInit {
 
   dataAtual = new Date();
+  horaMinima = '09:00';
+  horaMaxima = '18:00';
 
   validarDia = new FormControl(null);
   validarObservacao = new FormControl(null);
@@ -53,6 +55,12 @@ export class AgendamentocadastroComponent implements OnInit {
     }
   }
 
+  // Método para apenas permitir cadastros entre 9:00 e 18:00 horas
+  validarHorario(): boolean {
+    const horaSelecionada = this.agendamento.observacao;
+    return horaSelecionada >= this.horaMinima && horaSelecionada <= this.horaMaxima;
+  }
+
   // Método para obter os perfis de pets do usuário
   obterPerfilPetsPorUsuario(idUsuario: number) {
     this.perfilPetService.obterPerfisPorUsuario(idUsuario).subscribe(
@@ -67,6 +75,13 @@ export class AgendamentocadastroComponent implements OnInit {
 
   // Método para cadastrar um agendamento
   cadastrarAgendamento(): void {
+
+    if (!this.validarHorario()) {
+      // Mostrar uma mensagem de erro ao usuário informando que o horário selecionado está fora do intervalo permitido
+      this.toastr.error('Por favor, selecione um horário entre 09:00 e 18:00.', 'Erro');
+      return;
+    }
+
     this.agendamentoService.incluir(this.agendamento).subscribe(
       response => {
         this.toastr.success('Agendamento cadastrado com sucesso!', 'Sucesso');

@@ -6,4 +6,6 @@ export interface Agendamento {
     dia: string;
     tipo: string;
     observacao: string;
+    horaInicio?: number;
+    horaFim?: number;
   }  
