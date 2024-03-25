@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/usuario';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -14,8 +15,9 @@ export class AdminComponent implements OnInit {
   usuarios: Usuario[] = [];
   displayedColumns: string[] = ['position', 'name', 'email', 'password', 'celular', 'actions'];
   dataSource = new MatTableDataSource<Usuario>(this.usuarios);
+  numeroFuncionarios: number;
 
-  constructor(private usuarioService: UsuarioService, private toastr: ToastrService) { }
+  constructor(private usuarioService: UsuarioService, private toastr: ToastrService, private funcionarioService: FuncionarioService) { }
 
   ngOnInit(): void {
     this.listarUsuarios();
@@ -61,5 +63,18 @@ export class AdminComponent implements OnInit {
         }
       );
     }
+  }
+
+  incluirFuncionario(): void {
+    this.funcionarioService.incluir({ numeroFuncionarios: this.numeroFuncionarios }).subscribe(
+      response => {
+        this.toastr.success('Funcionário(s) incluído(s) com sucesso!', 'Sucesso');
+        console.log('Funcionário(s) incluído(s) com sucesso: ', response);
+      },
+      error => {
+        console.log('Erro ao incluir funcionário(s): ', error);
+        this.toastr.error('Erro ao incluir funcionário(s). Por favor, tente novamente mais tarde.', 'Erro');
+      }
+    );
   }
 }
