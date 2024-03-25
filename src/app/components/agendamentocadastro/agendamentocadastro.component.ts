@@ -102,7 +102,7 @@ export class AgendamentocadastroComponent implements OnInit {
       error => {
         console.log('Erro ao cadastrar agendamento: ', error);
         if (error.status === 500) {
-          this.toastr.error('Já existem 3 agendamentos cadastrados para a mesma hora e dia.', 'Erro');
+          this.toastr.error('Limite excedido de agendamentos cadastrados para a mesma hora e dia.', 'Erro');
         } else {
           this.toastr.error('Erro ao cadastrar agendamento. Por favor, tente novamente mais tarde.', 'Erro');
         }
